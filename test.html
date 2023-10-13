@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tebak Angka</title>
+</head>
+<body>
+    <script>
+        const angkaRandom = Math.floor(Math.random() * 100) + 1;
+        let tebakanPengguna;
+        let jumlahTebakan = 0;
+
+        function main() {
+            tebakanPengguna = parseInt(prompt('Tebak angka (antara 1 dan 100):'));
+
+            if (isNaN(tebakanPengguna)) {
+                alert('Masukkan angka yang valid!');
+                main();
+            } else {
+                jumlahTebakan++;
+                if (tebakanPengguna < angkaRandom) {
+                    alert('Tebakan Anda terlalu rendah, coba lagi!');
+                    main();
+                } else if (tebakanPengguna > angkaRandom) {
+                    alert('Tebakan Anda terlalu tinggi, coba lagi!');
+                    main();
+                } else {
+                    alert(`Selamat, Anda berhasil menebak angka! Jumlah tebakan yang diperlukan: ${jumlahTebakan}`);
+                }
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>
